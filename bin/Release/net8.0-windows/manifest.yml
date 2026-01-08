@@ -6,10 +6,7 @@ id: zip8919.SimpleDuty
 name: SimpleDuty
 description: 用于显示每日轮换的值日生信息
 entranceAssembly: "SimpleDuty.dll"
-url: https://github.com/zip8919/SimpleDuty
+url: https://github.com
 version: 1.0.0.0
 apiVersion: 2.0.0.0
 author: zip8919
-repoOwner: zip8919
-repoName: SimpleDuty
-assetsRoot: master/SimpleDuty
