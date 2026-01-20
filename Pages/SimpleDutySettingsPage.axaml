@@ -1,0 +1,47 @@
+<SettingsPageBase xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ci="http://classisland.tech/schemas/xaml/core" mc:Ignorable="d" x:Class="SimpleDuty.Pages.SimpleDutySettingsPage" d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock Text="SimpleDuty 设置" FontSize="24" FontWeight="Bold" Margin="0 0 0 20"/>
+            
+            <!-- 参与轮换的星期几设置 -->
+            <ci:Field Label="参与轮换的星期几" Margin="0 0 0 20">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <Button Content="周一到周六" Click="SetMonToSat" Width="100"/>
+                        <Button Content="周一到周五" Click="SetMonToFri" Width="100"/>
+                        <Button Content="每天" Click="SetEveryDay" Width="100"/>
+                    </StackPanel>
+                </StackPanel>
+            </ci:Field>
+            
+            <!-- 自定义显示格式 -->
+            <ci:Field Label="自定义显示格式" Margin="0 0 0 20">
+                <StackPanel>
+                    <TextBox Text="{Binding DisplayFormat, Mode=TwoWay}" Watermark="例如：值日：{n}{s}"/>
+                    <TextBlock Text="说明：{n}表示编号，{s}表示姓名" FontSize="12" Foreground="Gray" Margin="0 5 0 0"/>
+                </StackPanel>
+            </ci:Field>
+            
+            <!-- 名单编辑 -->
+            <ci:Field Label="值日生名单" Margin="0 0 0 20">
+                <StackPanel>
+                    <Button Content="导入名单" Command="{Binding ImportListCommand}" Margin="0 0 0 10"/>
+                    <TextBox x:Name="ListTextBox" AcceptsReturn="True" Height="150" Watermark="每行一个值日生，格式：编号 姓名"/>
+                    <Button Content="保存名单" Command="{Binding SaveListCommand}" Margin="0 10 0 0"/>
+                </StackPanel>
+            </ci:Field>
+            
+            <!-- 当前值日调整 -->
+            <ci:Field Label="当前值日调整" Margin="0 0 0 20">
+                <StackPanel>
+                    <ci:Field Label="偏移量（天数）">
+                        <TextBox Text="{Binding CurrentOffset, Mode=TwoWay}" Watermark="输入正数或负数" Width="200"/>
+                    </ci:Field>
+                    <ci:Field Label="基准日期">
+                        <DatePicker SelectedDate="{Binding BaseDate, Mode=TwoWay}" Width="200"/>
+                    </ci:Field>
+                </StackPanel>
+            </ci:Field>
+        </StackPanel>
+    </Grid>
+</SettingsPageBase>
